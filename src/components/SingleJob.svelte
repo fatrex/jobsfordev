@@ -43,14 +43,18 @@
     <div class="skills flex flex-row place-items-center">
       <i class='bx bx-check-double'></i>
       {#each mainSkills as skill, i}
-      <div class="rounded-full text-sm bg-teal-300 text-black p-1 px-2 border-2 border-teal-400 font-light ml-2">{skill}</div>
+      <span class="px-2 ml-2 text-base rounded-full text-white  bg-indigo-500 border-transparent border-2 ">
+        {skill}
+      </span>
       {/each}
     </div>
     <!-- Additional Skills -->
     <div class="skills flex flex-row items-center">
       <i class='bx bx-check'></i>
       {#each additionalSkills as skill, i}
-      <div class="rounded-full text-xs bg-blue-200 text-black px-2 border-2 border-blue-400 font-light ml-2">{skill}</div>
+      <span class="px-2 ml-2 text-xs rounded-full text-black  bg-indigo-200 border-indigo-300 border-2 ">
+        {skill}
+      </span>
       {/each}
     </div>
   </div>

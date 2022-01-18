@@ -1,14 +1,11 @@
 module.exports = {
+  mode: 'jj',
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    fontFamily: {
-      'sans': ['Lato']
-    },
     extend: {
-      backgroundImage: () => ({
-        check: "url('/icons/check.svg')",
-        landscape: "url('/images/landscape/2.jpg')",
-      }),
+      fontFamily: {
+        'sans': ['Lato']
+      },
     },
   },
   variants: {

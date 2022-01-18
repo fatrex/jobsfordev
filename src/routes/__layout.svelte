@@ -1,4 +1,6 @@
 <script>
+  import '../app.css'
+
   const { VITE_PLAUSBILE_DOMAIN } = import.meta.env
 </script>
 
@@ -9,9 +11,3 @@
 <div class="container mx-auto mt-2">
   <slot />
 </div>
-
-<style global lang="postcss">
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-</style>
