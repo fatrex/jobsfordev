@@ -1,10 +1,20 @@
 module.exports = {
+  mode: 'jj',
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    fontFamily: {
-      'sans': ['Lato']
+    extend: {
+      fontFamily: {
+        'sans': ['Lato']
+      },
     },
-    extend: {},
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+      inset: ['checked'],
+      zIndex: ['hover', 'active'],
+    },
   },
   plugins: [],
 }

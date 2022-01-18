@@ -11,10 +11,10 @@
     "lint": "eslint --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-auto": "^1.0.0-next.11",
     "@sveltejs/adapter-node": "^1.0.0-next.61",
     "@sveltejs/adapter-vercel": "next",
-    "@sveltejs/kit": "next",
+    "@sveltejs/kit": "^1.0.0-next.232",
     "autoprefixer": "^10.4.2",
     "eslint": "^7.32.0",
     "eslint-plugin-svelte3": "^3.2.1",
