@@ -47,7 +47,7 @@
     </div>
 
     <div class="text-gray-400 text-sm text-center py-8">
-      © {new Date().getFullYear()} - {"{coded by Daniele Lenares}"}
+      © {new Date().getFullYear()} - &#x007B;coded and mantained by <a target="_blank" href="https://github.com/dnlnrs">Daniele Lenares</a>&#x007D;
     </div>
   </footer>
 </div>
