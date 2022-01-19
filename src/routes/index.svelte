@@ -32,7 +32,7 @@
   <div class="flex flex-col lg:w-1/2 px-4 lg:p-0">
     <h1 class="text-3xl font-bold text-center lg:text-left">Jobs For Dev</h1>
     <p class="text-md font-semibold text-center lg:text-left">Offerte di lavoro per developer curate da developer</p>
-    <p class="pt-3">Puoi inserire la tua offerta utilizzando <a class="underline" href="{VITE_SUBMISSION_FORM_URL}" target="_blank">questo form</a></p>
+    <p class="pt-3">Puoi segnalare un'offerta utilizzando <a class="underline" href="{VITE_SUBMISSION_FORM_URL}" target="_blank">questo form</a></p>
     <p class="">Per qualsiasi feedback puoi contattarci <a class="underline" href="{VITE_FEEDBACK_FORM_URL}" target="_blank">qui</a></p>
   </div>
 </div>
