@@ -39,7 +39,6 @@
   }
 
   function setItems () {
-    console.log(filteredSalary, filteredTech)
     const items = filteredSalary.filter(item => 
       filteredTech.filter(job => job.id === item.id).length > 0 
     )
