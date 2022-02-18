@@ -1,4 +1,5 @@
 <script context="module">
+  import { originalJobs, technologies } from '@/stores/job'
   /** @type { import('@sveltejs/kit').Load } */
   export async function load({ fetch }) {
     const res = await fetch('/api/jobs.json', {
@@ -6,7 +7,16 @@
     })
 
     const { results } = await res.json()
-    const data = results.map(item => item.properties)
+    const data = results.map(item => ({ id: item.id, ...item.properties}) )
+
+    const retrievedTechs = results.reduce((techsArray, item) => {
+      const techs = item.properties.main_skills.multi_select.map(skill => skill.name)
+      return [...techsArray, ...techs]
+    }, [])
+
+    originalJobs.set(data)
+    filteredJobs.set(data)
+    technologies.set([...new Set(retrievedTechs)])
 
     return {
       props: {
@@ -19,10 +29,11 @@
 <script>
   import DeveloperImage from '../assets/images/developer.svg'
   import SingleJob from '../components/SingleJob.svelte'
+  import Filters from '../components/Filters.svelte'
 
   const { VITE_SUBMISSION_FORM_URL, VITE_FEEDBACK_FORM_URL } = import.meta.env;
 
-  export let jobs;
+  import { filteredJobs } from '@/stores/job'
 </script>
 
 <div class="flex flex-col lg:flex-row items-center">
@@ -37,8 +48,11 @@
   </div>
 </div>
 
+<Filters />
 <div class="flex flex-col mt-10">
-  {#each jobs as job}
+  {#key $filteredJobs}
+  {#each $filteredJobs as job}
   <SingleJob job={job} />
   {/each}
+  {/key}
 </div>
