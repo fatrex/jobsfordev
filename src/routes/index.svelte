@@ -1,5 +1,5 @@
 <script context="module">
-  import { originalJobs } from '@/stores/job'
+  import { originalJobs, technologies } from '@/stores/job'
   /** @type { import('@sveltejs/kit').Load } */
   export async function load({ fetch }) {
     const res = await fetch('/api/jobs.json', {
@@ -7,10 +7,16 @@
     })
 
     const { results } = await res.json()
-    const data = results.map(item => item.properties)
+    const data = results.map(item => ({ id: item.id, ...item.properties}) )
+
+    const retrievedTechs = results.reduce((techsArray, item) => {
+      const techs = item.properties.main_skills.multi_select.map(skill => skill.name)
+      return [...techsArray, ...techs]
+    }, [])
 
     originalJobs.set(data)
     filteredJobs.set(data)
+    technologies.set([...new Set(retrievedTechs)])
 
     return {
       props: {
