@@ -27,7 +27,9 @@
 </script>
 
 <script>
-  import DeveloperImage from '../assets/images/developer.svg'
+  import TextLogoImage from '@/assets/images/text_logo.svg'
+  import ImageLogo from '@/assets/images/img_logo.svg'
+  // import DeveloperImage from '../assets/images/developer.svg'
   import SingleJob from '../components/SingleJob.svelte'
   import Filters from '../components/Filters.svelte'
 
@@ -37,11 +39,13 @@
 </script>
 
 <div class="flex flex-col lg:flex-row items-center">
-  <div class="flex w-1/2 justify-center">
-    <img class="h-64" src={DeveloperImage} alt="Developer">
+  <div class="lg:flex w-1/3 justify-center hidden">
+    <img class="h-64" src={ImageLogo} alt="Developer">
   </div>
-  <div class="flex flex-col lg:w-1/2 px-4 lg:p-0">
-    <h1 class="text-3xl font-bold text-center lg:text-left">Jobs For Dev</h1>
+  <div class="flex flex-col lg:w-1/3 px-4 lg:p-0">
+    <div class="py-7 lg:pb-7 items-center m-auto lg:m-0">
+      <img src={TextLogoImage} alt="jobs for dev" />
+    </div>
     <p class="text-md font-semibold text-center lg:text-left">Offerte di lavoro per developer curate da developer</p>
     <p class="pt-3">Puoi segnalare un'offerta utilizzando <a class="underline" href="{VITE_SUBMISSION_FORM_URL}" target="_blank">questo form</a></p>
     <p class="">Per qualsiasi feedback puoi contattarci <a class="underline" href="{VITE_FEEDBACK_FORM_URL}" target="_blank">qui</a></p>
