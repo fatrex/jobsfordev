@@ -11,6 +11,7 @@
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
+    _paq.push(['requireCookieConsent']);
     (function() {
       var u="//www.codebits.it/_trk_/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
