@@ -6,8 +6,9 @@ A job offers aggregator for developers made by developer
 ## Developing
 
 ```bash
-npm run dev
+# To start the API
+yarn workspace api dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# To start the Frontend
+yarn workspace fronted dev 
 ```
