@@ -3,7 +3,6 @@
 
   export let job
 
-  console.log(job)
   const companyLogo = job.company.logo?.url
   const companyName = job.company.name
   const role = job.role
