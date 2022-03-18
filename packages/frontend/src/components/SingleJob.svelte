@@ -3,21 +3,20 @@
 
   export let job
 
-  const companyLogo = job.company_logo.files[0].file.url
-  const companyName = job.company_name.title[0].plain_text
-  const role = job.role.rich_text[0].plain_text
-  const seniority = job.seniority.select?.name
+  console.log(job)
+  const companyLogo = job.company.logo?.url
+  const companyName = job.company.name
+  const role = job.role
+  const seniority = job.seniority
 
-  const officePresence = job.office_presence.select.name
-  // const salaryMin = job.salary_min.number
-  // const salaryMax = job.salary_max.number
-  const salary = (job.salary.formula.number / 1000).toFixed(0)
+  const officePresence = ''
+  const salary = Math.round(job.salary)
 
-  const mainSkills = job.main_skills.multi_select.map(item => item.name)
-  const additionalSkills = job.additional_skills.multi_select.map(item => item.name)
-  const link = job.link.url
+  const mainSkills = job.mainSkills.map(item => item.name)
+  const additionalSkills = job.secondarySkills.map(item => item.name)
+  const link = job.originalUrl
 
-  const createdAt = new Date(job.created_at.created_time)
+  const createdAt = new Date()
   const createdAtHuman = `${createdAt.getDate()}/${(createdAt.getMonth() + 1).toString().padStart(2, '0')}`
 </script>
 
