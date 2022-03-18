@@ -32,6 +32,7 @@ model Company {
 
 model JobOffer {
   id              String    @id @default(cuid())
+  status          String?   @default("draft")
   company         Company?  @relation("JobOffer_company", fields: [companyId], references: [id])
   companyId       String?   @map("company")
   role            String    @default("")
@@ -40,6 +41,7 @@ model JobOffer {
   secondarySkills Skill[]   @relation("JobOffer_secondarySkills")
   salaryMin       Int
   salaryMax       Int
+  originalUrl     String    @default("")
   createdAt       DateTime? @default(now())
 
   @@index([companyId])
