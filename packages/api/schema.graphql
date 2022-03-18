@@ -180,6 +180,7 @@ input CompanyCreateInput {
 
 type JobOffer {
   id: ID!
+  status: String
   company: Company
   role: String
   seniority: String
@@ -200,6 +201,7 @@ type JobOffer {
   salaryMin: Int
   salaryMax: Int
   salary(value: Float): Float
+  originalUrl: String
   createdAt: DateTime
 }
 
@@ -215,6 +217,7 @@ input JobOfferWhereInput {
   OR: [JobOfferWhereInput!]
   NOT: [JobOfferWhereInput!]
   id: IDFilter
+  status: StringNullableFilter
   company: CompanyWhereInput
   role: StringFilter
   seniority: StringFilter
@@ -222,7 +225,36 @@ input JobOfferWhereInput {
   secondarySkills: SkillManyRelationFilter
   salaryMin: IntFilter
   salaryMax: IntFilter
+  originalUrl: StringFilter
   createdAt: DateTimeNullableFilter
+}
+
+input StringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
+input NestedStringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
 }
 
 input SkillManyRelationFilter {
@@ -255,14 +287,17 @@ input DateTimeNullableFilter {
 
 input JobOfferOrderByInput {
   id: OrderDirection
+  status: OrderDirection
   role: OrderDirection
   seniority: OrderDirection
   salaryMin: OrderDirection
   salaryMax: OrderDirection
+  originalUrl: OrderDirection
   createdAt: OrderDirection
 }
 
 input JobOfferUpdateInput {
+  status: String
   company: CompanyRelateToOneForUpdateInput
   role: String
   seniority: String
@@ -270,6 +305,7 @@ input JobOfferUpdateInput {
   secondarySkills: SkillRelateToManyForUpdateInput
   salaryMin: Int
   salaryMax: Int
+  originalUrl: String
   createdAt: DateTime
 }
 
@@ -292,6 +328,7 @@ input JobOfferUpdateArgs {
 }
 
 input JobOfferCreateInput {
+  status: String
   company: CompanyRelateToOneForCreateInput
   role: String
   seniority: String
@@ -299,6 +336,7 @@ input JobOfferCreateInput {
   secondarySkills: SkillRelateToManyForCreateInput
   salaryMin: Int
   salaryMax: Int
+  originalUrl: String
   createdAt: DateTime
 }
 
