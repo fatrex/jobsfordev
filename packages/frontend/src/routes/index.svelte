@@ -6,21 +6,20 @@
       method: 'POST'
     })
 
-    const { results } = await res.json()
-    const data = results.map(item => ({ id: item.id, ...item.properties}) )
+    const results = await res.json()
 
     const retrievedTechs = results.reduce((techsArray, item) => {
-      const techs = item.properties.main_skills.multi_select.map(skill => skill.name)
+      const techs = item.mainSkills.map(skill => skill.name)
       return [...techsArray, ...techs]
     }, [])
 
-    originalJobs.set(data)
-    filteredJobs.set(data)
+    originalJobs.set(results)
+    filteredJobs.set(results)
     technologies.set([...new Set(retrievedTechs)])
 
     return {
       props: {
-        jobs: data
+        jobs: results
       }
     }
   }

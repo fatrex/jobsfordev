@@ -4,7 +4,7 @@
   "license": "unlicensed",
   "private": true,
   "scripts": {
-    "dev": "svelte-kit dev",
+    "dev": "svelte-kit dev --port=8010",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
