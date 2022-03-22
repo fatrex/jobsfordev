@@ -1,6 +1,6 @@
 <script>
   import Link from './elements/Link.svelte'
-
+  const { VITE_PANEL_URL } = import.meta.env
   export let job
 
   const companyLogo = job.company.logo?.url
@@ -22,7 +22,7 @@
 <div class="relative grid grid-flow-row lg:grid-flow-col lg:grid-cols-12 m-2 mb-5 p-2 rounded-md border-2 border-gray-300 shadow-sm hover:shadow-md hover:bg-gray-50">
   <div class="h-6 -top-6 left-0 rounded-t-lg absolute bg-indigo-500 text-white whitespace-no-wrap px-2">{createdAtHuman}</div>
   <div class="image col-span-1 items-center pb-2 lg:pb-0 lg:justify-center flex">
-    <div class="h-14 w-14 rounded-full bg-center bg-cover flex" style="background-image:url({companyLogo})"></div>
+    <div class="h-14 w-14 rounded-full bg-center bg-cover flex" style="background-image:url({`${VITE_PANEL_URL + companyLogo}`})"></div>
     <em class="block lg:hidden pl-2">{companyName}</em>
   </div>
   <div class="content col-span-5">
