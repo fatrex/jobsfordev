@@ -15,7 +15,7 @@
   const additionalSkills = job.secondarySkills.map(item => item.name)
   const link = job.originalUrl
 
-  const createdAt = new Date()
+  const createdAt = new Date(job.createdAt)
   const createdAtHuman = `${createdAt.getDate()}/${(createdAt.getMonth() + 1).toString().padStart(2, '0')}`
 </script>
 
