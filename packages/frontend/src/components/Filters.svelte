@@ -17,7 +17,7 @@
       filteredSalary = $originalJobs
     } else {
       const items = $originalJobs.filter(item =>
-        minSalary <= (item.salary.formula.number / 1000) && (item.salary.formula.number / 1000) <= maxSalary
+        minSalary <= item.salary && item.salary <= maxSalary
       )
       filteredSalary = items
     }
@@ -29,8 +29,8 @@
       filteredTech = $originalJobs
     } else {
       const values = e.detail.map(val => val.value)
-      const items = $originalJobs.filter(item => 
-        item.main_skills.multi_select.filter(skill => {
+      const items = $originalJobs.filter(item =>
+        item.mainSkills.filter(skill => {
           return values.includes(skill.name)
         }).length > 0
       )

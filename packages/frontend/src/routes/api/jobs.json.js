@@ -11,7 +11,7 @@ export async function post() {
     data: {
       query: `
         {
-          jobOffers(where: { status: { equals: "published" } }) {
+          jobOffers(where: { status: { equals: "published" } }, orderBy: { createdAt: desc }) {
             id
             company {
               name
@@ -28,7 +28,8 @@ export async function post() {
               name
             }
             salary,
-            originalUrl
+            originalUrl,
+            createdAt
           }
         }
       `

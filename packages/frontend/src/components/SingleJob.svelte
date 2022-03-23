@@ -15,7 +15,7 @@
   const additionalSkills = job.secondarySkills.map(item => item.name)
   const link = job.originalUrl
 
-  const createdAt = new Date()
+  const createdAt = new Date(job.createdAt)
   const createdAtHuman = `${createdAt.getDate()}/${(createdAt.getMonth() + 1).toString().padStart(2, '0')}`
 </script>
 
@@ -30,7 +30,8 @@
     <h3 class="text-xl text-gray-900 font-semibold">
       {role} 
       {#if seniority}
-      <span class="text-gray-400">|</span> {seniority}
+      <span class="text-gray-400">|</span> 
+      <span class="seniority">{seniority}</span>
       {/if}
     </h3>
     <div class="divide-x divide-double flex flex-row">
@@ -77,3 +78,9 @@
     </Link>
   </div>
 </div>
+
+<style>
+  .seniority {
+    text-transform: capitalize;
+  }
+</style>
