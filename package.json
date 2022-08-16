@@ -1,8 +1,24 @@
 {
-  "name": "root",
+  "name": "@example/basics",
+  "version": "0.0.1",
   "private": true,
-  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@astrojs/image": "^0.3.4",
+    "@astrojs/tailwind": "^1.0.0",
+    "astro": "^1.0.3",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.4"
+  },
+  "dependencies": {
+    "appwrite": "^9.0.1",
+    "dayjs": "^1.11.4",
+    "nanostores": "^0.6.0"
   }
 }

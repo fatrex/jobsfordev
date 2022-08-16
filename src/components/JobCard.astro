@@ -1,0 +1,46 @@
+---
+import dayjs from 'dayjs';
+import type { Job } from "../../lib/database-types";
+
+
+export interface Props {
+  job: Job
+}
+
+const { job } = Astro.props as Props
+---
+
+<div class="job-card">
+  <div class="date">
+    {dayjs.unix(job.$createdAt).format("DD/MM/YYYY")}
+  </div>
+  <div class="card-body">
+    <div class="company-logo">logo</div>
+    <div class="job-info">
+      <div class="company">YO</div>
+      <div class="role">{job.role}</div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .job-card {
+    @apply rounded-b-lg rounded-tr-lg border-2 border-slate-300 relative;
+
+    .date {
+      @apply absolute bg-indigo-600 rounded-t-lg -top-5 -left-0.5 text-white text-sm px-3;
+    }
+
+    .card-body {
+      @apply px-10 py-10 flex flex-row space-x-4;
+
+      .company-logo {
+        @apply w-1/12 flex items-center justify-center;
+      }
+    }
+
+    .job-info {
+      @apply flex flex-col justify-center;
+    }
+  }
+</style>
